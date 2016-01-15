@@ -1,0 +1,23 @@
+# tasks file for percona-toolkit
+---
+- name: configure | generate (pt-heartbeat) script
+  template:
+    src: usr/local/bin/pt-heartbeat-script.j2
+    dest: /usr/local/bin/pt-heartbeat-script
+    owner: root
+    group: root
+    mode: 0750
+    validate: '/usr/bin/env bash -n %s'
+  tags:
+    - percona-toolkit-configure-generate-pt-heartbeat-script
+
+- name: configure | generate (pt-table-checksum) script
+  template:
+    src: usr/local/bin/pt-table-checksum-script.j2
+    dest: /usr/local/bin/pt-table-checksum-script
+    owner: root
+    group: root
+    mode: 0750
+    validate: '/usr/bin/env bash -n %s'
+  tags:
+    - percona-toolkit-configure-generate-pt-table-checksum-script

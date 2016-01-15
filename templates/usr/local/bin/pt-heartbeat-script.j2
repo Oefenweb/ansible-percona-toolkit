@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# {{ ansible_managed }}
+#
+# set -x;
+set -e;
+set -o pipefail;
+#
+thisFile="$(readlink -f "${0}")";
+thisFilePath="$(dirname "${thisFile}")";
+
+pt-heartbeat \
+{% if percona_tools_heartbeat_defaults_file is defined %}
+  --defaults-file={{ percona_tools_heartbeat_defaults_file }} \
+{% endif %}
+{% if percona_tools_heartbeat_host is defined %}
+  --host={{ percona_tools_heartbeat_host }} \
+{% endif %}
+{% if percona_tools_heartbeat_password is defined %}
+  --password={{ percona_tools_heartbeat_password }} \
+{% endif %}
+{% if percona_tools_heartbeat_port is defined %}
+  --port={{ percona_tools_heartbeat_port }} \
+{% endif %}
+{% if percona_tools_heartbeat_socket is defined %}
+  --socket={{ percona_tools_heartbeat_socket }} \
+{% endif %}
+{% if percona_tools_heartbeat_user is defined %}
+  --user={{ percona_tools_heartbeat_user }} \
+{% endif %}
+{% if percona_tools_heartbeat_daemonize | default(false) %}
+  --daemonize \
+{% endif %}
+;

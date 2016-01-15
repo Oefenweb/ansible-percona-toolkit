@@ -1,0 +1,9 @@
+# tasks file for percona-toolkit
+---
+- name: install | dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: percona_toolkit_dependencies
+  tags:
+    - percona-toolkit-install-dependencies

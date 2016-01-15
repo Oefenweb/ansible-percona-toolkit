@@ -1,0 +1,3 @@
+# defaults file for percona-toolkit
+---
+percona_toolkit_cron_jobs: []

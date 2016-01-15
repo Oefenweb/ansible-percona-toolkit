@@ -1,0 +1,25 @@
+# tasks file for percona-toolkit
+---
+- include: repository.yml
+  tags:
+    - configuration
+    - percona-toolkit
+    - percona-toolkit-repository
+
+- include: install.yml
+  tags:
+    - configuration
+    - percona-toolkit
+    - percona-toolkit-install
+
+- include: configure.yml
+  tags:
+    - configuration
+    - percona-toolkit
+    - percona-toolkit-configure
+
+- include: jobs.yml
+  tags:
+    - configuration
+    - percona-toolkit
+    - percona-toolkit-jobs
