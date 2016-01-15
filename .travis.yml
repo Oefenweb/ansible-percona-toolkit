@@ -57,7 +57,8 @@ script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
 
   # Run the role/playbook with ansible-playbook.
-  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo -vvvv
+  - if [ "$ANSIBLE_VERSION" == 2.* ]; then ansible-playbook -i tests/inventory tests/test.yml --connection=local --become -vvvv; fi
+  - if [ "$ANSIBLE_VERSION" != 2.* ]; then ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo -vvvv; fi  
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
