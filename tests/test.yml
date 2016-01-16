@@ -1,7 +1,7 @@
 # test file for percona-toolkit
 ---
 - hosts: localhost
-  remote_user: root
-  become: true
+  connection: local
+  sudo: true
   roles:
     - ../../
