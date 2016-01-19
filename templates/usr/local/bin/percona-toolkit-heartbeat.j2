@@ -10,25 +10,25 @@ thisFile="$(readlink -f "${0}")";
 thisFilePath="$(dirname "${thisFile}")";
 
 pt-heartbeat \
-{% if percona_toolkit_heartbeat_defaults_file is defined %}
-  --defaults-file={{ percona_toolkit_heartbeat_defaults_file }} \
+{% if percona_toolkit_heartbeat.defaults_file is defined %}
+  --defaults-file={{ percona_toolkit_heartbeat.defaults_file }} \
 {% endif %}
-{% if percona_toolkit_heartbeat_host is defined %}
-  --host={{ percona_toolkit_heartbeat_host }} \
+{% if percona_toolkit_heartbeat.host is defined %}
+  --host={{ percona_toolkit_heartbeat.host }} \
 {% endif %}
-{% if percona_toolkit_heartbeat_password is defined %}
-  --password={{ percona_toolkit_heartbeat_password }} \
+{% if percona_toolkit_heartbeat.password is defined %}
+  --password={{ percona_toolkit_heartbeat.password }} \
 {% endif %}
-{% if percona_toolkit_heartbeat_port is defined %}
-  --port={{ percona_toolkit_heartbeat_port }} \
+{% if percona_toolkit_heartbeat.port is defined %}
+  --port={{ percona_toolkit_heartbeat.port }} \
 {% endif %}
-{% if percona_toolkit_heartbeat_socket is defined %}
-  --socket={{ percona_toolkit_heartbeat_socket }} \
+{% if percona_toolkit_heartbeat.socket is defined %}
+  --socket={{ percona_toolkit_heartbeat.socket }} \
 {% endif %}
-{% if percona_toolkit_heartbeat_user is defined %}
-  --user={{ percona_toolkit_heartbeat_user }} \
+{% if percona_toolkit_heartbeat.user is defined %}
+  --user={{ percona_toolkit_heartbeat.user }} \
 {% endif %}
-{% if percona_toolkit_heartbeat_daemonize | default(false) %}
+{% if percona_toolkit_heartbeat.daemonize | default(false) %}
   --daemonize \
 {% endif %}
 ;

@@ -10,28 +10,28 @@ thisFile="$(readlink -f "${0}")";
 thisFilePath="$(dirname "${thisFile}")";
 
 pt-table-checksum \
-{% if percona_toolkit_table_checksum_defaults_file is defined %}
-  --defaults-file={{ percona_toolkit_table_checksum_defaults_file }} \
+{% if percona_toolkit_table_checksum.defaults_file is defined %}
+  --defaults-file={{ percona_toolkit_table_checksum.defaults_file }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_host is defined %}
-  --host={{ percona_toolkit_table_checksum_host }} \
+{% if percona_toolkit_table_checksum.host is defined %}
+  --host={{ percona_toolkit_table_checksum.host }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_password is defined %}
-  --password={{ percona_toolkit_table_checksum_password }} \
+{% if percona_toolkit_table_checksum.password is defined %}
+  --password={{ percona_toolkit_table_checksum.password }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_port is defined %}
-  --port={{ percona_toolkit_table_checksum_port }} \
+{% if percona_toolkit_table_checksum.port is defined %}
+  --port={{ percona_toolkit_table_checksum.port }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_socket is defined %}
-  --socket={{ percona_toolkit_table_checksum_socket }} \
+{% if percona_toolkit_table_checksum.socket is defined %}
+  --socket={{ percona_toolkit_table_checksum.socket }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_user is defined %}
-  --user={{ percona_toolkit_table_checksum_user }} \
+{% if percona_toolkit_table_checksum.user is defined %}
+  --user={{ percona_toolkit_table_checksum.user }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_databases is defined %}
-  --databases={{ percona_toolkit_table_checksum_databases }} \
+{% if percona_toolkit_table_checksum.databases is defined %}
+  --databases={{ percona_toolkit_table_checksum.databases }} \
 {% endif %}
-{% if percona_toolkit_table_checksum_ignore_databases is defined %}
-  --ignore-databases={{ percona_toolkit_table_checksum_ignore_databases	 }} \
+{% if percona_toolkit_table_checksum.ignore_databases is defined %}
+  --ignore-databases={{ percona_toolkit_table_checksum.ignore_databases }} \
 {% endif %}
 ;

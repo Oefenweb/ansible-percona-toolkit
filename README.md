@@ -24,22 +24,24 @@ None
 
 ##### pt-heartbeat
 
-* `percona_toolkit_heartbeat_defaults_file`: [optional]: Only read mysql options from the given file. You must give an absolute pathname.
-* `percona_toolkit_heartbeat_host`: [optional]: Host to connect to (default localhost)
-* `percona_toolkit_heartbeat_password`: [optional]: Password to use when connecting
-* `percona_toolkit_heartbeat_port`: [optional]: Port number to use for connection
-* `percona_toolkit_heartbeat_socket`: [optional]: Socket file to use for connection
-* `percona_toolkit_heartbeat_user`: [optional]: User for login if not current user
-* `percona_toolkit_heartbeat_daemonize`: [optional, default: `false`]: Fork to the background and detach from the shell. POSIX operating systems only.
+* `percona_toolkit_heartbeat`: [optional, default: `{}`]: pt-heartbeat configuration declarations
+* `percona_toolkit_heartbeat.defaults_file`: [optional]: Only read mysql options from the given file. You must give an absolute pathname.
+* `percona_toolkit_heartbeat.host`: [optional]: Host to connect to (default localhost)
+* `percona_toolkit_heartbeat.password`: [optional]: Password to use when connecting
+* `percona_toolkit_heartbeat.port`: [optional]: Port number to use for connection
+* `percona_toolkit_heartbeat.socket`: [optional]: Socket file to use for connection
+* `percona_toolkit_heartbeat.user`: [optional]: User for login if not current user
+* `percona_toolkit_heartbeat.daemonize`: [optional, default: `false`]: Fork to the background and detach from the shell. POSIX operating systems only.
 
 ##### pt-table-checksum
 
-* `percona_toolkit_table_checksum_defaults_file`: [optional]: Only read mysql options from the given file. You must give an absolute pathname.
-* `percona_toolkit_table_checksum_host`: [optional]: Host to connect to (default localhost)
-* `percona_toolkit_table_checksum_password`: [optional]: Password to use when connecting
-* `percona_toolkit_table_checksum_port`: [optional]: Port number to use for connection
-* `percona_toolkit_table_checksum_socket`: [optional]: Socket file to use for connection
-* `percona_toolkit_table_checksum_user`: [optional]: User for login if not current user
+* `percona_toolkit_table_checksum`: [optional, default: `{}`]: pt-table-checksum configuration declarations
+* `percona_toolkit_table_checksum.defaults_file`: [optional]: Only read mysql options from the given file. You must give an absolute pathname.
+* `percona_toolkit_table_checksum.host`: [optional]: Host to connect to (default localhost)
+* `percona_toolkit_table_checksum.password`: [optional]: Password to use when connecting
+* `percona_toolkit_table_checksum.port`: [optional]: Port number to use for connection
+* `percona_toolkit_table_checksum.socket`: [optional]: Socket file to use for connection
+* `percona_toolkit_table_checksum.user`: [optional]: User for login if not current user
 
 ## Dependencies
 
