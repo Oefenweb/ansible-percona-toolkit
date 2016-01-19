@@ -13,8 +13,8 @@ None
 ##### General
 
 * `percona_toolkit_cron_jobs`: [optional, default: `[]`]: List of job declarations
-* `percona_toolkit_cron_jobs.{n}.name`: [required]: Description of a crontab entry, should be unique, and changing the value will result in a new cron task being created (e.g. `duply-backup-etc`)
-* `percona_toolkit_cron_jobs.{n}.job`: [required]: The command to execute (e.g. `/usr/bin/flock -n /var/lock/percona-toolkit-sheartbeat -c /usr/local/bin/percona-toolkit-heartbeat`)
+* `percona_toolkit_cron_jobs.{n}.name`: [required]: Description of a crontab entry, should be unique, and changing the value will result in a new cron task being created (e.g. `pt-deadlock-logger`)
+* `percona_toolkit_cron_jobs.{n}.job`: [required]: The command to execute (e.g. `/usr/bin/flock -n /var/lock/percona-toolkit-heartbeat -c /usr/local/bin/pt-heartbeat-wrapper`)
 * `percona_toolkit_cron_jobs.{n}.state`: [default: `present`]: Whether to ensure the job is present or absent
 * `percona_toolkit_cron_jobs.{n}.day`: [default: `*`]: Day of the month the job should run (`1-31`, `*`, `*/2`)
 * `percona_toolkit_cron_jobs.{n}.hour`: [default: `*`]: Hour when the job should run (e.g. `0-23`, `*`, `*/2`)
@@ -88,15 +88,15 @@ None
   vars:
     percona_toolkit_cron_jobs:
       - name: pt-deadlock-logger
-        job: '/usr/bin/flock -n /var/lock/percona-toolkit-deadlock-logger -c /usr/local/bin/percona-toolkit-deadlock-logger'
+        job: '/usr/bin/flock -n /var/lock/percona-toolkit-deadlock-logger -c /usr/local/bin/pt-deadlock-logger-wrapper'
         minute: 0
         hour: 0
       - name: pt-heartbeat
-        job: '/usr/bin/flock -n /var/lock/percona-toolkit-heartbeat -c /usr/local/bin/percona-toolkit-heartbeat'
+        job: '/usr/bin/flock -n /var/lock/percona-toolkit-heartbeat -c /usr/local/bin/pt-heartbeat-wrapper'
         minute: 0
         hour: 0
       - name: pt-table-checksum
-        job: '/usr/bin/flock -n /var/lock/percona-toolkit-table-checksum -c /usr/local/bin/percona-toolkit-table-checksum'
+        job: '/usr/bin/flock -n /var/lock/percona-toolkit-table-checksum -c /usr/local/bin/pt-table-checksum-wrapper'
         minute: 0
         hour: 0
 ```
@@ -107,8 +107,8 @@ MIT
 
 #### Author Information
 
-Mark van Driel
-Mischa ter Smitten
+* Mark van Driel
+* Mischa ter Smitten
 
 #### Feedback, bug-reports, requests, ...
 
