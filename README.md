@@ -22,6 +22,21 @@ None
 * `percona_toolkit_cron_jobs.{n}.month`: [default: `*`]: Month of the year the job should run (e.g `1-12`, `*`, `*/2`)
 * `percona_toolkit_cron_jobs.{n}.weekday`: [default: `*`]: Day of the week that the job should run (e.g. `0-6` for Sunday-Saturday, `*`)
 
+##### pt-deadlock-logger
+
+* `percona_toolkit_deadlock_logger`: [optional, default: `{}`]: pt-deadlock-logger configuration declarations
+* `percona_toolkit_deadlock_logger.defaults_file`: [optional]: Only read mysql options from the given file. You must give an absolute pathname.
+* `percona_toolkit_deadlock_logger.host`: [optional]: Host to connect to (default localhost)
+* `percona_toolkit_deadlock_logger.password`: [optional]: Password to use when connecting
+* `percona_toolkit_deadlock_logger.port`: [optional]: Port number to use for connection
+* `percona_toolkit_deadlock_logger.socket`: [optional]: Socket file to use for connection
+* `percona_toolkit_deadlock_logger.user`: [optional]: User for login if not current user
+* `percona_toolkit_deadlock_logger.daemonize`: [optional, default: `false`]: Fork to the background and detach from the shell. POSIX operating systems only.
+* `percona_toolkit_deadlock_logger.dest`: [optional]: DSN for where to store deadlocks configuration declarations
+* `percona_toolkit_deadlock_logger.dest.host`: [optional]: Host of DSN for where to store deadlocks
+* `percona_toolkit_deadlock_logger.dest.database`: [required]: Database of DSN for where to store deadlocks
+* `percona_toolkit_deadlock_logger.dest.table`: [required]: Table of DSN for where to store deadlocks
+
 ##### pt-heartbeat
 
 * `percona_toolkit_heartbeat`: [optional, default: `{}`]: pt-heartbeat configuration declarations
@@ -72,6 +87,10 @@ None
     - percona-toolkit
   vars:
     percona_toolkit_cron_jobs:
+      - name: pt-deadlock-logger
+        job: '/usr/bin/flock -n /var/lock/percona-toolkit-deadlock-logger -c /usr/local/bin/percona-toolkit-deadlock-logger'
+        minute: 0
+        hour: 0
       - name: pt-heartbeat
         job: '/usr/bin/flock -n /var/lock/percona-toolkit-heartbeat -c /usr/local/bin/percona-toolkit-heartbeat'
         minute: 0

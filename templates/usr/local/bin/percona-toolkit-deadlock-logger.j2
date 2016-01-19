@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# {{ ansible_managed }}
+#
+# set -x;
+set -e;
+set -o pipefail;
+#
+thisFile="$(readlink -f "${0}")";
+thisFilePath="$(dirname "${thisFile}")";
+
+pt-heartbeat \
+{% if percona_toolkit_deadlock_logger.defaults_file is defined %}
+  --defaults-file={{ percona_toolkit_deadlock_logger.defaults_file }} \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.host is defined %}
+  --host={{ percona_toolkit_deadlock_logger.host }} \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.password is defined %}
+  --password={{ percona_toolkit_deadlock_logger.password }} \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.port is defined %}
+  --port={{ percona_toolkit_deadlock_logger.port }} \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.socket is defined %}
+  --socket={{ percona_toolkit_deadlock_logger.socket }} \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.user is defined %}
+  --user={{ percona_toolkit_deadlock_logger.user }} \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.daemonize | default(false) %}
+  --daemonize \
+{% endif %}
+{% if percona_toolkit_deadlock_logger.dest is defined %}
+  --dest \
+  {% if percona_toolkit_deadlock_logger.dest.host is defined %}
+h={{ percona_toolkit_deadlock_logger.dest.host }},\
+  {% endif %}
+D={{ percona_toolkit_deadlock_logger.dest.database }},\
+t={{ percona_toolkit_deadlock_logger.dest.table }}\
+{% endif %}
+;

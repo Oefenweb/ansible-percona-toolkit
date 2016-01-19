@@ -1,5 +1,6 @@
 # defaults file for percona-toolkit
 ---
 percona_toolkit_cron_jobs: []
+percona_toolkit_deadlock_logger: {}
 percona_toolkit_heartbeat: {}
 percona_toolkit_table_checksum: {}

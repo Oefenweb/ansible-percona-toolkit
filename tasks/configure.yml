@@ -1,5 +1,16 @@
 # tasks file for percona-toolkit
 ---
+- name: configure | generate (pt-deadlock-logger) script
+  template:
+    src: usr/local/bin/percona-toolkit-deadlock-logger.j2
+    dest: /usr/local/bin/percona-toolkit-deadlock-logger
+    owner: root
+    group: root
+    mode: 0750
+    validate: '/usr/bin/env bash -n %s'
+  tags:
+    - percona-toolkit-configure-generate-pt-deadlock-logger-script
+
 - name: configure | generate (pt-heartbeat) script
   template:
     src: usr/local/bin/percona-toolkit-heartbeat.j2
