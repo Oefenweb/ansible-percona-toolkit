@@ -1,0 +1,23 @@
+# meta file for percona-toolkit
+---
+galaxy_info:
+  author: Mischa ter Smitten
+  company: Oefenweb.nl B.V.
+  description: Manage percona-toolkit in Debian-like systems
+  license: MIT
+  min_ansible_version: 1.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+  categories:
+    - system
+    - monitoring
+    - database
+    - database:sql
+dependencies: []

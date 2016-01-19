@@ -1,0 +1,17 @@
+# tasks file for percona-toolkit
+---
+- name: configure (cron) jobs
+  cron:
+    name: "{{ item.name }}"
+    job: "{{ item.job }}"
+    state: "{{ item.state | default('present') }}"
+    day: "{{ item.day | default('*') }}"
+    hour: "{{ item.hour | default('*') }}"
+    minute: "{{ item.minute | default('*') }}"
+    month: "{{ item.month | default('*') }}"
+    weekday: "{{ item.weekday | default('*') }}"
+    cron_file: percona-toolkit
+    user: root
+  with_items: percona_toolkit_cron_jobs
+  tags:
+    - percona-toolkit-jobs-configure

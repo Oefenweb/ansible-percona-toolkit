@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# {{ ansible_managed }}
+#
+# set -x;
+set -e;
+set -o pipefail;
+#
+thisFile="$(readlink -f "${0}")";
+thisFilePath="$(dirname "${thisFile}")";
+
+pt-table-checksum \
+{% if percona_toolkit_table_checksum.defaults_file is defined %}
+  --defaults-file={{ percona_toolkit_table_checksum.defaults_file }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.host is defined %}
+  --host={{ percona_toolkit_table_checksum.host }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.password is defined %}
+  --password={{ percona_toolkit_table_checksum.password }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.port is defined %}
+  --port={{ percona_toolkit_table_checksum.port }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.socket is defined %}
+  --socket={{ percona_toolkit_table_checksum.socket }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.user is defined %}
+  --user={{ percona_toolkit_table_checksum.user }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.databases is defined %}
+  --databases={{ percona_toolkit_table_checksum.databases }} \
+{% endif %}
+{% if percona_toolkit_table_checksum.ignore_databases is defined %}
+  --ignore-databases={{ percona_toolkit_table_checksum.ignore_databases }} \
+{% endif %}
+;

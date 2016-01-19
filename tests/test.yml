@@ -1,0 +1,7 @@
+# test file for percona-toolkit
+---
+- hosts: localhost
+  connection: local
+  sudo: true
+  roles:
+    - ../../

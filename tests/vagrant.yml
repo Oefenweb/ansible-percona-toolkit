@@ -1,0 +1,7 @@
+# test file for percona-toolkit
+---
+- hosts: all
+  remote_user: vagrant
+  sudo: true
+  roles:
+    - ../../

@@ -1,0 +1,81 @@
+---
+language: python
+python: "2.7"
+
+env:
+  - ANSIBLE_VERSION=latest
+  - ANSIBLE_VERSION=2.0.0.2
+  - ANSIBLE_VERSION=2.0.0.1
+  - ANSIBLE_VERSION=2.0.0.0
+  - ANSIBLE_VERSION=1.9.4
+  - ANSIBLE_VERSION=1.9.3
+  - ANSIBLE_VERSION=1.9.2
+  - ANSIBLE_VERSION=1.9.1
+  - ANSIBLE_VERSION=1.9.0.1
+  - ANSIBLE_VERSION=1.8.4
+  - ANSIBLE_VERSION=1.8.3
+  - ANSIBLE_VERSION=1.8.2
+  - ANSIBLE_VERSION=1.8.1
+  - ANSIBLE_VERSION=1.8
+  - ANSIBLE_VERSION=1.7.2
+  - ANSIBLE_VERSION=1.7.1
+  - ANSIBLE_VERSION=1.7
+  - ANSIBLE_VERSION=1.6.9
+  - ANSIBLE_VERSION=1.6.8
+  - ANSIBLE_VERSION=1.6.7
+  - ANSIBLE_VERSION=1.6.6
+  - ANSIBLE_VERSION=1.6.5
+  - ANSIBLE_VERSION=1.6.4
+  - ANSIBLE_VERSION=1.6.3
+  - ANSIBLE_VERSION=1.6.2
+  - ANSIBLE_VERSION=1.6.10
+  - ANSIBLE_VERSION=1.6.1
+  - ANSIBLE_VERSION=1.6
+  - ANSIBLE_VERSION=1.5.5
+  - ANSIBLE_VERSION=1.5.4
+  - ANSIBLE_VERSION=1.5.3
+  - ANSIBLE_VERSION=1.5.2
+  - ANSIBLE_VERSION=1.5.1
+  - ANSIBLE_VERSION=1.5
+  - ANSIBLE_VERSION=1.4.5
+  - ANSIBLE_VERSION=1.4.4
+  - ANSIBLE_VERSION=1.4.3
+  - ANSIBLE_VERSION=1.4.2
+  - ANSIBLE_VERSION=1.4.1
+  - ANSIBLE_VERSION=1.4
+
+matrix:
+  allow_failures:
+    # See https://github.com/ansible/ansible/issues/6385
+    - env: ANSIBLE_VERSION=1.5.1
+
+branches:
+  only:
+    - master
+
+before_install:
+  - sudo apt-get update -qq
+
+install:
+  # Install Ansible.
+  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+
+script:
+  # Check the role/playbook's syntax.
+  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+
+  # Run the role/playbook with ansible-playbook.
+  - ansible-playbook -i tests/inventory tests/test.yml -vvvv
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
+  - >
+    ansible-playbook -i tests/inventory tests/test.yml
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+
+notifications:
+  email: false
+  hipchat:
+    rooms:
+      secure: wnP8RPWtAiHSFmcx6yA+wMwjMxWplcGltDgM3UGhC9vsd+dTPwKd5pfz2qGuBX7G0Ezs46diV3V+8MwzO648C4oIzS6JIcXTht9zkvnIpGVQuylYRfwGF+UQEESW+GEWGIw/HotR7+6+JCL4ATPPEMUQxpPlnqQzQy3BAUofXcGbklcrXEp2vop82vCwONy0NTv2hPtHULwCU5JySVih2qaRgQuSl64NDpQf43nzrsB1jxaA6UCqNGTezyAFwZ3SYPnfPQRKX34yZHVNyegziLwQie4GGmuJS0jnEynrpiP2ZWyKEstsgBfl8UPtz7XlMF+/huSseEzkIdyu4gkPXOu6oGAJfLhJ6SVLlB6P87KhFk2o+UphjxrCZitwDAumUNQ/eZtm/h/ofMqjbMVRamEqqbdsCa2Q/9w6UEG4D44egmpiaSj8A9qV3p8d3nUiYe+bb6XJKVwaeqcSM79V4kCUetqz3BJhe/yjx2w7StYOs+UN8uDwz8talUJNrNA9m/uWv8pkRd8FYHN118ui2jsTGVAVH/LlCl4hFpcPqGV5oo9dzR3fiWvvQvsxr0xBZAHgouw1JmbiEaDjoF1ZmXpofr6DQGQ93ZOo2Vcr4kGbDc5hLlJpuZkN2pkG7HgKm2fBaW2ou2Tpd6A94AGFOyyPsjd9lF/xaKASaqK60mo=
