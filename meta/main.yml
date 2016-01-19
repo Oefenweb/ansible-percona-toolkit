@@ -9,16 +9,15 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - lucid
         - precise
         - trusty
     - name: Debian
       versions:
-        - squeeze
         - wheezy
         - jessie
   categories:
     - system
+    - monitoring
     - database
     - database:sql
 dependencies: []
