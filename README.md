@@ -71,7 +71,7 @@ None
   vars:
     percona_toolkit_cron_jobs:
       - name: pt-heartbeat
-        job: '/usr/bin/flock -n /var/lock/pt-sheartbeat-script -c /usr/local/bin/pt-heartbeat-script'
+        job: '/usr/bin/flock -n /var/lock/pt-heartbeat-script -c /usr/local/bin/pt-heartbeat-script'
         minute: 0
         hour: 0
       - name: pt-table-checksum
