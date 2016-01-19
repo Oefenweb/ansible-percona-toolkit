@@ -2,8 +2,8 @@
 ---
 - name: configure | generate (pt-heartbeat) script
   template:
-    src: usr/local/bin/pt-heartbeat-script.j2
-    dest: /usr/local/bin/pt-heartbeat-script
+    src: usr/local/bin/percona-toolkit-heartbeat.j2
+    dest: /usr/local/bin/percona-toolkit-heartbeat
     owner: root
     group: root
     mode: 0750
@@ -13,8 +13,8 @@
 
 - name: configure | generate (pt-table-checksum) script
   template:
-    src: usr/local/bin/pt-table-checksum-script.j2
-    dest: /usr/local/bin/pt-table-checksum-script
+    src: usr/local/bin/percona-toolkit-table-checksum.j2
+    dest: /usr/local/bin/percona-toolkit-table-checksum
     owner: root
     group: root
     mode: 0750

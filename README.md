@@ -14,7 +14,7 @@ None
 
 * `percona_toolkit_cron_jobs`: [optional, default: `[]`]: List of job declarations
 * `percona_toolkit_cron_jobs.{n}.name`: [required]: Description of a crontab entry, should be unique, and changing the value will result in a new cron task being created (e.g. `duply-backup-etc`)
-* `percona_toolkit_cron_jobs.{n}.job`: [required]: The command to execute (e.g. `/usr/bin/flock -n /var/lock/pt-sheartbeat-script -c /usr/local/bin/pt-heartbeat-script`)
+* `percona_toolkit_cron_jobs.{n}.job`: [required]: The command to execute (e.g. `/usr/bin/flock -n /var/lock/percona-toolkit-sheartbeat -c /usr/local/bin/percona-toolkit-heartbeat`)
 * `percona_toolkit_cron_jobs.{n}.state`: [default: `present`]: Whether to ensure the job is present or absent
 * `percona_toolkit_cron_jobs.{n}.day`: [default: `*`]: Day of the month the job should run (`1-31`, `*`, `*/2`)
 * `percona_toolkit_cron_jobs.{n}.hour`: [default: `*`]: Hour when the job should run (e.g. `0-23`, `*`, `*/2`)
@@ -71,11 +71,11 @@ None
   vars:
     percona_toolkit_cron_jobs:
       - name: pt-heartbeat
-        job: '/usr/bin/flock -n /var/lock/pt-heartbeat-script -c /usr/local/bin/pt-heartbeat-script'
+        job: '/usr/bin/flock -n /var/lock/percona-toolkit-heartbeat -c /usr/local/bin/percona-toolkit-heartbeat'
         minute: 0
         hour: 0
       - name: pt-table-checksum
-        job: '/usr/bin/flock -n /var/lock/pt-table-checksum-script -c /usr/local/bin/pt-table-checksum-script'
+        job: '/usr/bin/flock -n /var/lock/percona-toolkit-table-checksum -c /usr/local/bin/percona-toolkit-table-checksum'
         minute: 0
         hour: 0
 ```
