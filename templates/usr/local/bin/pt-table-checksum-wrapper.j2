@@ -29,9 +29,12 @@ pt-table-checksum \
   --user={{ percona_toolkit_table_checksum.user }} \
 {% endif %}
 {% if percona_toolkit_table_checksum.databases is defined %}
-  --databases={{ percona_toolkit_table_checksum.databases }} \
+  --databases={{ percona_toolkit_table_checksum.databases | join(',') }} \
 {% endif %}
 {% if percona_toolkit_table_checksum.ignore_databases is defined %}
-  --ignore-databases={{ percona_toolkit_table_checksum.ignore_databases }} \
+  --ignore-databases={{ percona_toolkit_table_checksum.ignore_databases | join(',') }} \
 {% endif %}
+{% for opt in percona_toolkit_table_checksum.opts | default([]) %}
+  {{ opt }} \
+{% endfor %}
 ;
