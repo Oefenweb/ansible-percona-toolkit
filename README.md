@@ -32,6 +32,7 @@ None
 * `percona_toolkit_deadlock_logger.socket`: [optional]: Socket file to use for connection
 * `percona_toolkit_deadlock_logger.user`: [optional]: User for login if not current user
 * `percona_toolkit_deadlock_logger.daemonize`: [optional, default: `false`]: Fork to the background and detach from the shell. POSIX operating systems only.
+* `percona_toolkit_deadlock_logger.opts`: [optional, default: `[]`]: Additional options
 * `percona_toolkit_deadlock_logger.dest`: [optional]: DSN for where to store deadlocks configuration declarations
 * `percona_toolkit_deadlock_logger.dest.host`: [optional]: Host of DSN for where to store deadlocks
 * `percona_toolkit_deadlock_logger.dest.database`: [required]: Database of DSN for where to store deadlocks
@@ -47,6 +48,7 @@ None
 * `percona_toolkit_heartbeat.socket`: [optional]: Socket file to use for connection
 * `percona_toolkit_heartbeat.user`: [optional]: User for login if not current user
 * `percona_toolkit_heartbeat.daemonize`: [optional, default: `false`]: Fork to the background and detach from the shell. POSIX operating systems only.
+* `percona_toolkit_heartbeat.opts`: [optional, default: `[]`]: Additional options
 
 ##### pt-table-checksum
 
@@ -57,6 +59,9 @@ None
 * `percona_toolkit_table_checksum.port`: [optional]: Port number to use for connection
 * `percona_toolkit_table_checksum.socket`: [optional]: Socket file to use for connection
 * `percona_toolkit_table_checksum.user`: [optional]: User for login if not current user
+* `percona_toolkit_table_checksum.databases`: [optional]: Only checksum this list of databases (e.g. `['foo', 'bar']`)
+* `percona_toolkit_table_checksum.ignore_databases`: [optional]: Ignore this list of databases (e.g. `['information_schema', 'common_schema']`)
+* `percona_toolkit_table_checksum.opts`: [optional, default: `[]`]: Additional options
 
 ## Dependencies
 

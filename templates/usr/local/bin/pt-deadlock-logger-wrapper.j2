@@ -31,6 +31,9 @@ pt-heartbeat \
 {% if percona_toolkit_deadlock_logger.daemonize | default(false) %}
   --daemonize \
 {% endif %}
+{% for opt in percona_toolkit_deadlock_logger.opts | default([]) %}
+  {{ opt }} \
+{% endfor %}
 {% if percona_toolkit_deadlock_logger.dest is defined %}
   --dest \
   {% if percona_toolkit_deadlock_logger.dest.host is defined %}

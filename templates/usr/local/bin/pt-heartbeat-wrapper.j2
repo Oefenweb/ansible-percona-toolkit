@@ -31,4 +31,7 @@ pt-heartbeat \
 {% if percona_toolkit_heartbeat.daemonize | default(false) %}
   --daemonize \
 {% endif %}
+{% for opt in percona_toolkit_heartbeat.opts | default([]) %}
+  {{ opt }} \
+{% endfor %}
 ;
