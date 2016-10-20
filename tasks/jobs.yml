@@ -12,6 +12,6 @@
     weekday: "{{ item.weekday | default('*') }}"
     cron_file: percona-toolkit
     user: root
-  with_items: percona_toolkit_cron_jobs
+  with_items: "{{ percona_toolkit_cron_jobs }}"
   tags:
     - percona-toolkit-jobs-configure

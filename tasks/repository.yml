@@ -13,7 +13,7 @@
     repo: "{{ item.type }} {{ item.url }} {{ item.component }}"
     state: present
     update_cache: true
-  with_items: percona_toolkit_repositories
+  with_items: "{{ percona_toolkit_repositories }}"
   tags:
     - percona-toolkit-repository-add
 

@@ -4,6 +4,6 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items: percona_toolkit_dependencies
+  with_items: "{{ percona_toolkit_dependencies }}"
   tags:
     - percona-toolkit-install-dependencies
