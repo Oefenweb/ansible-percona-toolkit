@@ -9,7 +9,7 @@ set -o pipefail;
 thisFile="$(readlink -f "${0}")";
 thisFilePath="$(dirname "${thisFile}")";
 
-pt-heartbeat \
+pt-deadlock-logger \
 {% if percona_toolkit_deadlock_logger.defaults_file is defined %}
   --defaults-file={{ percona_toolkit_deadlock_logger.defaults_file }} \
 {% endif %}
