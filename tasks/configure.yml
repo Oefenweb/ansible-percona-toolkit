@@ -1,34 +1,16 @@
 # tasks file for percona-toolkit
 ---
-- name: configure | generate (pt-deadlock-logger) script
+- name: configure | generate scripts
   template:
-    src: usr/local/bin/pt-deadlock-logger-wrapper.j2
-    dest: /usr/local/bin/pt-deadlock-logger-wrapper
+    src: "{{ item.lstrip('/') }}.j2"
+    dest: "{{ item }}"
     owner: root
     group: root
     mode: 0750
     validate: '/usr/bin/env bash -n %s'
+  with_items:
+    - /usr/local/bin/pt-deadlock-logger-wrapper
+    - /usr/local/bin/pt-heartbeat-wrapper
+    - /usr/local/bin/pt-table-checksum-wrapper
   tags:
-    - percona-toolkit-configure-generate-pt-deadlock-logger-script
-
-- name: configure | generate (pt-heartbeat) script
-  template:
-    src: usr/local/bin/pt-heartbeat-wrapper.j2
-    dest: /usr/local/bin/pt-heartbeat-wrapper
-    owner: root
-    group: root
-    mode: 0750
-    validate: '/usr/bin/env bash -n %s'
-  tags:
-    - percona-toolkit-configure-generate-pt-heartbeat-script
-
-- name: configure | generate (pt-table-checksum) script
-  template:
-    src: usr/local/bin/pt-table-checksum-wrapper.j2
-    dest: /usr/local/bin/pt-table-checksum-wrapper
-    owner: root
-    group: root
-    mode: 0750
-    validate: '/usr/bin/env bash -n %s'
-  tags:
-    - percona-toolkit-configure-generate-pt-table-checksum-script
+    - percona-toolkit-configure-generate-scripts
