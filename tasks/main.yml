@@ -21,7 +21,6 @@
 - include: scripts.yml
   tags:
     - configuration
-    - tools
     - percona-toolkit
     - percona-toolkit-scripts
 
