@@ -1,0 +1,10 @@
+# tasks file for percona-server-tools
+---
+- name: scripts | copy files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+  with_items: "{{ percona_toolkit_script_map }}"

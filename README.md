@@ -63,6 +63,15 @@ None
 * `percona_toolkit_table_checksum.ignore_databases`: [optional]: Ignore this list of databases (e.g. `['information_schema', 'common_schema']`)
 * `percona_toolkit_table_checksum.opts`: [optional, default: `[]`]: Additional options
 
+##### (Custom) scripts
+
+* `percona_toolkit_script_map`: [default: `[]`]: Script declarations
+* `percona_toolkit_script_map.{n}.src`: The local path of the file to copy, can be absolute or relative (e.g. `../../../files/percona-toolkit/usr/local/bin/pt-truncate-database.sh`)
+* `percona_toolkit_script_map.{n}.dest`: The remote path of the file to copy (e.g. `/usr/local/bin/pt-truncate-database`)
+* `percona_toolkit_script_map.{n}.owner`: The name of the user that should own the file (optional, default `root`)
+* `percona_toolkit_script_map.{n}.group`: The name of the group that should own the file (optional, default `root`)
+* `percona_toolkit_script_map.{n}.mode`: The mode of the file, such as 0644 (optional, default `0755`)
+
 ## Dependencies
 
 None

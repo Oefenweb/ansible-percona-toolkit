@@ -18,6 +18,13 @@
     - percona-toolkit
     - percona-toolkit-configure
 
+- include: scripts.yml
+  tags:
+    - configuration
+    - tools
+    - percona-toolkit
+    - percona-toolkit-scripts
+
 - include: jobs.yml
   tags:
     - configuration
