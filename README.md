@@ -1,6 +1,6 @@
 ## percona-toolkit
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-percona-toolkit.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-percona-toolkit) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-percona--toolkit-blue.svg)](https://galaxy.ansible.com/list#/roles/6990)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-percona-toolkit.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-percona-toolkit) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-percona--toolkit-blue.svg)](https://galaxy.ansible.com/Oefenweb/percona-toolkit)
 
 Manage [percona-toolkit](https://www.percona.com/software/mysql-tools/percona-toolkit) in Debian-like systems.
 
