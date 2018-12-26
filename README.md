@@ -10,6 +10,10 @@ None
 
 #### Variables
 
+##### Percona version
+
+* `percona_toolkit_repo_version`: [required, default: `5.6`]: Manages the repository depending on the Percona version (5.5, 5.6, 5.7 and 8.0)
+
 ##### General
 
 * `percona_toolkit_cron_jobs`: [optional, default: `[]`]: List of job declarations

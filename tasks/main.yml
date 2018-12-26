@@ -1,5 +1,11 @@
 # tasks file for percona-toolkit
 ---
+- include: version-support.yml
+  tags:
+    - configuration
+    - percona-toolkit
+    - percona-toolkit-repo-version-support
+
 - include: repository.yml
   tags:
     - configuration
