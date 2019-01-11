@@ -22,7 +22,7 @@ percona_toolkit_repositories_8:
     url: "http://repo.percona.com/tools/apt {{ ansible_lsb.codename }}"
     component: main
 
-percona_toolkit_repositories: "{{ percona_toolkit_repositories_8 if percona_toolkit_repo_version == 8.0 else percona_toolkit_repositories_5 }}"
+percona_toolkit_repositories: "{{ percona_toolkit_repositories_8 if percona_toolkit_repo_version is version('8.0', '==') else percona_toolkit_repositories_5 }}"
 
 percona_toolkit_dependencies:
   - percona-toolkit
