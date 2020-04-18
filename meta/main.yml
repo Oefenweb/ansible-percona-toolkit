@@ -1,6 +1,7 @@
 # meta file for percona-toolkit
 ---
 galaxy_info:
+  role_name: percona-toolkit
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Manage percona-toolkit in Debian-like systems
