@@ -1,0 +1,8 @@
+# tasks file for percona repo
+---
+- name: version support | check
+  fail:
+    msg: "Percona Server version {{ percona_toolkit_repo_version }} is not supported"
+  when: percona_toolkit_repo_version | string not in percona_toolkit_repo_versions_supported
+  tags:
+    - percona-toolkit-repo-version-support-check

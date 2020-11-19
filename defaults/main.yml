@@ -1,5 +1,6 @@
 # defaults file for percona-toolkit
 ---
+percona_toolkit_repo_version: 5.6
 percona_toolkit_cron_jobs: []
 
 percona_toolkit_deadlock_logger: {}
