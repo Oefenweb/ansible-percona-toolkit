@@ -1,13 +1,11 @@
 # tasks file for percona-toolkit
 ---
-- name: repository | install | dependencies
+- name: repository | install | dependencies (pre)
   apt:
-    name:
-      - dirmngr
+    name: "{{ percona_toolkit_dependencies_pre }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  when: ansible_distribution == 'Debian' and ansible_distribution_version is version('9', '>=')
   tags:
     - percona-toolkit-repository-install
     - percona-toolkit-repository-install-dependencies
