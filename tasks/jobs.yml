@@ -1,4 +1,4 @@
-# tasks file for percona-toolkit
+# tasks file
 ---
 - name: configure (cron) jobs
   cron:

@@ -1,4 +1,4 @@
-# defaults file for percona-toolkit
+# defaults file
 ---
 percona_toolkit_cron_jobs: []
 

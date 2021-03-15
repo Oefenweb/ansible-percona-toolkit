@@ -1,4 +1,4 @@
-# test file for percona-toolkit
+# test file
 ---
 - hosts: localhost
   connection: local
