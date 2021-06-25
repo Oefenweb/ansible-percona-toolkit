@@ -1,7 +1,7 @@
 ## percona-toolkit
 
 [![CI](https://github.com/Oefenweb/ansible-percona-toolkit/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-percona-toolkit/actions?query=workflow%3ACI)
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-percona--toolkit-blue.svg)](https://galaxy.ansible.com/Oefenweb/percona-toolkit)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-percona--toolkit-blue.svg)](https://galaxy.ansible.com/Oefenweb/percona_toolkit)
 
 Manage [percona-toolkit](https://www.percona.com/software/mysql-tools/percona-toolkit) in Debian-like systems.
 

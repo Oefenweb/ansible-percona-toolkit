@@ -2,7 +2,7 @@
 ---
 galaxy_info:
   namespace: oefenweb
-  role_name: percona-toolkit
+  role_name: percona_toolkit
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
   description: Manage percona-toolkit in Debian-like systems
