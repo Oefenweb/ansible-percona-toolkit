@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: configure (cron) jobs
-  cron:
+  ansible.builtin.cron:
     name: "{{ item.name }}"
     job: "{{ item.job }}"
     state: "{{ item.state | default('present') }}"

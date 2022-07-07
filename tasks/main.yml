@@ -1,30 +1,30 @@
 # tasks file
 ---
-- include: repository.yml
+- ansible.builtin.include: repository.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-repository
 
-- include: install.yml
+- ansible.builtin.include: install.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-install
 
-- include: configure.yml
+- ansible.builtin.include: configure.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-configure
 
-- include: scripts.yml
+- ansible.builtin.include: scripts.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-scripts
 
-- include: jobs.yml
+- ansible.builtin.include: jobs.yml
   tags:
     - configuration
     - percona-toolkit

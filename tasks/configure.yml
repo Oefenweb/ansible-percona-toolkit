@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: configure | generate scripts
-  template:
+  ansible.builtin.template:
     src: "{{ item.lstrip('/') }}.j2"
     dest: "{{ item }}"
     owner: root
