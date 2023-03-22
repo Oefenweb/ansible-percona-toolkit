@@ -1,30 +1,35 @@
 # tasks file
 ---
-- ansible.builtin.include: repository.yml
+- name: repository
+  ansible.builtin.import_tasks: repository.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-repository
 
-- ansible.builtin.include: install.yml
+- name: install
+  ansible.builtin.import_tasks: install.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-install
 
-- ansible.builtin.include: configure.yml
+- name: configure
+  ansible.builtin.import_tasks: configure.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-configure
 
-- ansible.builtin.include: scripts.yml
+- name: scripts
+  ansible.builtin.import_tasks: scripts.yml
   tags:
     - configuration
     - percona-toolkit
     - percona-toolkit-scripts
 
-- ansible.builtin.include: jobs.yml
+- name: jobs
+  ansible.builtin.import_tasks: jobs.yml
   tags:
     - configuration
     - percona-toolkit
