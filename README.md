@@ -91,7 +91,7 @@ None
 ---
 - hosts: all
   roles:
-    - percona-toolkit
+    - oefenweb.percona-toolkit
 ```
 
 ##### Create jobs
@@ -100,7 +100,7 @@ None
 ---
 - hosts: all
   roles:
-    - percona-toolkit
+    - oefenweb.percona-toolkit
   vars:
     percona_toolkit_cron_jobs:
       - name: pt-deadlock-logger
