@@ -9,6 +9,7 @@ Manage [percona-toolkit](https://www.percona.com/software/mysql-tools/percona-to
 
 * `software-properties-common` (will be installed)
 * `dirmngr` (will be installed)
+* `apt-transport-https` (will be installed)
 
 #### Variables
 
