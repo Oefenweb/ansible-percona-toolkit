@@ -1,16 +1,28 @@
 # vars file
 ---
+percona_toolkit_keyring_id: 9334A25F8507EFA5
+percona_toolkit_keyring_dst: /usr/share/keyrings/percona.gpg
+
 percona_toolkit_repositories:
+  - type: "deb [signed-by={{ percona_toolkit_keyring_dst }}]"
+    url: "http://repo.percona.com/tools/apt {{ ansible_distribution_release }}"
+    component: main
+  - type: "deb-src [signed-by={{ percona_toolkit_keyring_dst }}]"
+    url: "http://repo.percona.com/tools/apt {{ ansible_distribution_release }}"
+    component: main
   - type: deb
     url: "http://repo.percona.com/tools/apt {{ ansible_distribution_release }}"
     component: main
+    state: absent
   - type: deb-src
     url: "http://repo.percona.com/tools/apt {{ ansible_distribution_release }}"
     component: main
+    state: absent
 
 percona_toolkit_dependencies_pre:
   - software-properties-common
   - dirmngr
+  - apt-transport-https
 
 percona_toolkit_dependencies:
   - percona-toolkit

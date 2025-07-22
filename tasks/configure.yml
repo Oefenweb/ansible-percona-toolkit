@@ -6,7 +6,7 @@
     dest: "{{ item }}"
     owner: root
     group: root
-    mode: 0750
+    mode: '0750'
     validate: '/usr/bin/env bash -n %s'
   with_items:
     - /usr/local/bin/pt-deadlock-logger-wrapper
